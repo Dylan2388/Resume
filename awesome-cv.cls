@@ -81,30 +81,56 @@
 \defaultfontfeatures{
   Renderer=HarfBuzz,
 }
-\setmainfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
-]
-\setsansfont{Source Sans 3}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
-]
-\newfontfamily\roboto{Roboto}[
-  UprightFont=*,
-  ItalicFont=* Italic,
-  BoldFont=* Bold,
-  BoldItalicFont=* Bold Italic,
-  FontFace={l}{n}{Font=* Light},
-  FontFace={l}{it}{Font=* Light Italic},
-]
+\newif\ifacv@lightfontavailable
+\IfFontExistsTF{Source Sans 3}{
+  \acv@lightfontavailabletrue
+  \setmainfont{Source Sans 3}[
+    UprightFont=*,
+    ItalicFont=* Italic,
+    BoldFont=* Bold,
+    BoldItalicFont=* Bold Italic,
+    FontFace={l}{n}{Font=* Light},
+    FontFace={l}{it}{Font=* Light Italic},
+  ]
+  \setsansfont{Source Sans 3}[
+    UprightFont=*,
+    ItalicFont=* Italic,
+    BoldFont=* Bold,
+    BoldItalicFont=* Bold Italic,
+    FontFace={l}{n}{Font=* Light},
+    FontFace={l}{it}{Font=* Light Italic},
+  ]
+}{
+  \acv@lightfontavailablefalse
+  \PackageWarningNoLine{awesome-cv}{Source Sans 3 not found. Falling back to TeX Gyre Heros OTF files}
+  \setmainfont{texgyreheros-regular.otf}[
+    BoldFont=texgyreheros-bold.otf,
+    ItalicFont=texgyreheros-italic.otf,
+    BoldItalicFont=texgyreheros-bolditalic.otf,
+  ]
+  \setsansfont{texgyreheros-regular.otf}[
+    BoldFont=texgyreheros-bold.otf,
+    ItalicFont=texgyreheros-italic.otf,
+    BoldItalicFont=texgyreheros-bolditalic.otf,
+  ]
+}
+\IfFontExistsTF{Roboto}{
+  \newfontfamily\roboto{Roboto}[
+    UprightFont=*,
+    ItalicFont=* Italic,
+    BoldFont=* Bold,
+    BoldItalicFont=* Bold Italic,
+    FontFace={l}{n}{Font=* Light},
+    FontFace={l}{it}{Font=* Light Italic},
+  ]
+}{
+  \PackageWarningNoLine{awesome-cv}{Roboto not found. Falling back to TeX Gyre Heros OTF files}
+  \newfontfamily\roboto{texgyreheros-regular.otf}[
+    BoldFont=texgyreheros-bold.otf,
+    ItalicFont=texgyreheros-italic.otf,
+    BoldItalicFont=texgyreheros-bolditalic.otf,
+  ]
+}
 % Needed for the photo ID
 \RequirePackage[skins]{tcolorbox}
 % Needed to deal a paragraphs
@@ -185,10 +211,15 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 \newcommand*{\headerfont}{\roboto\selectfont}
-\newcommand*{\headerfontlight}{\roboto\fontseries{l}\selectfont}
 \newcommand*{\footerfont}{\sffamily}
 \newcommand*{\bodyfont}{\sffamily}
-\newcommand*{\bodyfontlight}{\sffamily\fontseries{l}\selectfont}
+\ifacv@lightfontavailable
+  \newcommand*{\headerfontlight}{\roboto\fontseries{l}\selectfont}
+  \newcommand*{\bodyfontlight}{\sffamily\fontseries{l}\selectfont}
+\else
+  \newcommand*{\headerfontlight}{\roboto\selectfont}
+  \newcommand*{\bodyfontlight}{\sffamily\selectfont}
+\fi
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles

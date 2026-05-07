@@ -1,0 +1,141 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Authors:
+% Claud D. Park <posquit0.bj@gmail.com>
+% Lars Richter <mail@ayeks.de>
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-red}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[circle,noedge,left]{profile}
+\name{Dylan N}{Pham}
+\position{Data Scientist{\enskip\cdotp\enskip} Machine Learning Engineer}
+\address{Tenderinlenkki 6C, 00520, Helsinki, Finland}
+
+\mobile{(+358) 504-763-601}
+\email{hoangdungpham0703@gmail.com}
+% \homepage{www.posquit0.com}
+% \github{posquit0}
+\linkedin{dylanpn}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+% \googlescholar{googlescholar-id}{name-to-display}
+%% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra informations}
+
+% \quote{``Be the change that you want to see in the world."}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+  {Company Recruitment Team}
+  {Nordea}
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{Job Application for “Hands-On AI Engineering”}
+% How the letter is opened
+\letteropening{Dear Azin Emami,}
+% How the letter is closed
+\letterclosing{Best Regards,}
+% Any enclosures with the letter
+% \letterenclosure[Attached]{Curriculum Vitae}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[R]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {Dylan N Pham~~~·~~~Cover Letter}
+  {}
+
+% Print the title with above letter informations
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+% \lettersection{About Myself}
+I am writing to apply for the Hands-On AI Engineering position at Nordea, referred by Khanh Tran, Senior Credit Risk Analyst at Nordea, who speaks highly of Nordea's culture and the impactful work being done across the organization. Currently based in Helsinki and working as a Machine Learning Engineer at Ericsson, I have spent the past three years building production ML systems for large-scale network operations. As an Aalto University alumnus with a Master's in Data Science, I am excited to bring my expertise in ML infrastructure and production systems to Nordea's AI platform team.
+
+At Ericsson, I have delivered measurable impact by optimizing data pipelines—achieving 100x faster data insertion for time-series network data—and developing ML applications for Software-Defined Network products, including a system that detects bad weather conditions from transmission signals. I build and manage cloud-based ML infrastructure using Kubernetes, Docker, Kaniko, and Helm, deploy CI/CD pipelines with Jenkins, and maintain ML lifecycle management with Kubeflow, MLflow, and DVC for data versioning. These skills in container orchestration, infrastructure automation, and data governance position me to contribute immediately to Nordea's AI platform.
+
+I want to be transparent: my cloud experience has been built on Kubernetes and Jenkins rather than AWS-specific services. However, my Kubernetes expertise translates directly to AWS EKS, my Helm charts align with infrastructure-as-code principles used in Terraform, and my Kubeflow experience provides a strong foundation for SageMaker pipelines. I learn new technologies rapidly—I mastered Golang and delivered production improvements within my first year at Ericsson—and I'm confident I can quickly adopt AWS tools while immediately contributing my ML architecture and system optimization expertise.
+
+Throughout my career, I've thrived in cross-functional teams, collaborating with data scientists, architects, and product teams to deliver AI-driven solutions. I'm drawn to Nordea's mission to build scalable, reusable ML infrastructure that empowers the entire organization, and I'm excited about the opportunity to work on MLOps at scale, multi-tenant architectures, and automated model lifecycle management.
+
+Thank you for considering my application. I would welcome the opportunity to discuss how my production ML experience and passion for building scalable AI systems can contribute to Nordea's AI transformation.
+
+\end{cvletter}
+
+
+%-------------------------------------------------------------------------------
+% Print the signature and enclosures with above letter informations
+\makeletterclosing
+
+\end{document}
+
+
