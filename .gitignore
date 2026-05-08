@@ -25,3 +25,6 @@
 _bmad/*
 .claude/*
 .agents/*
+
+# Vscode
+.vscode/*
