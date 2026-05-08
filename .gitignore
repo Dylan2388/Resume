@@ -17,6 +17,10 @@
 .*sw[op]
 *~
 
+### Python ###
+__pycache__/
+*.py[cod]
+
 ### Mac OS X ###
 ## Mac OS X metadata files:
 *.DS_Store
@@ -31,6 +35,8 @@ _bmad/*
 !.agents/skills/bmad-cv-editor/SKILL.md
 !.agents/skills/bmad-cover-letter-writer/
 !.agents/skills/bmad-cover-letter-writer/SKILL.md
+!.agents/skills/bmad-job-application-workflow/
+!.agents/skills/bmad-job-application-workflow/SKILL.md
 
 # Vscode
 .vscode/*

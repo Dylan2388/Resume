@@ -3,7 +3,7 @@
     <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
   </a>
   <br />
-  Awesome CV
+  Dylan Awesome CV
 </h1>
 
 <p align="center">
@@ -11,9 +11,6 @@
 </p>
 
 <div align="center">
-  <a href="https://www.paypal.me/posquit0">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
-  </a>
   <a href="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml">
     <img alt="GitHub Actions" src="https://github.com/posquit0/Awesome-CV/actions/workflows/main.yml/badge.svg" />
   </a>
@@ -97,7 +94,52 @@ In either case, this should result in the creation of ``{your-cv}.pdf``
 
 ## AI-Assisted Application Workflow
 
-Use this workflow when tailoring the resume and cover letter for a specific job description.
+This repository includes BMad skills for turning a job description into an application-specific package. Use them from Codex by invoking the skill name in chat.
+
+The application workflow keeps canonical resume sources under `resume/` separate from job-specific outputs under `JDs/`. For JD-specific applications, agents should edit only copied files in `JDs/<Job Name> - <Company>/` and leave `resume/resume_Dylan.tex` and `resume/sections/*.tex` unchanged.
+
+### Available BMad agents
+
+| Skill | Use it for |
+| --- | --- |
+| `$bmad-job-application-workflow` | End-to-end flow from job-posting URL to refined JD notes, tailored resume, and tailored cover letter. |
+| `$bmad-cv-editor` | Resume/CV editing, rebuilding, or JD-specific tailoring. |
+| `$bmad-cover-letter-writer` | Cover-letter drafting or tailoring from the resume and a JD workspace. |
+
+> Note: this repo currently installs `$bmad-cover-letter-writer`, not `$bmad-cover-letter-editor`. If you ask for "cover letter editor", use `$bmad-cover-letter-writer`.
+
+### From a JD URL with BMad
+
+Ask Codex to run:
+
+```text
+$bmad-job-application-workflow
+```
+
+Then provide the job-posting URL when prompted. You can include title or company overrides if the posting is ambiguous:
+
+```text
+$bmad-job-application-workflow
+https://example.com/job-posting
+Title: Senior AI/ML Engineer
+Company: Example Company
+```
+
+The skill crawls and validates the posting with `scripts/jd_from_url.py`, retries LinkedIn search URLs through their direct job URL when possible, creates and refines `JDs/<Job Name> - <Company>/jd-information.md`, then runs `$bmad-cv-editor` and `$bmad-cover-letter-writer` for that JD workspace.
+
+Expected outputs:
+
+- `JDs/<Job Name> - <Company>/jd-information.md`
+- `JDs/<Job Name> - <Company>/jd-crawl-result.json`
+- `JDs/<Job Name> - <Company>/tex/resume_Dylan.tex`
+- `JDs/<Job Name> - <Company>/tex/sections/*.tex`
+- `JDs/<Job Name> - <Company>/resume_Dylan.pdf`
+- `JDs/<Job Name> - <Company>/Cover Letter <Company>.tex`
+- `JDs/<Job Name> - <Company>/Cover Letter <Company>.pdf`
+
+If the crawler cannot access a posting because it is private, blocked, dynamic, or behind a login page, paste the full JD text into chat and continue with the pasted-JD flow.
+
+### From pasted JD text
 
 1. Copy the full job description into the chat.
 2. Ask `$bmad-cv-editor` to create a new CV version for that JD.
@@ -106,6 +148,43 @@ Use this workflow when tailoring the resume and cover letter for a specific job 
 5. The cover letter writer should use `JDs/<Job Name> - <Company>/jd-information.md` as the targeting source and place both the `.tex` cover letter and generated PDF in that same JD folder.
 
 The canonical resume under `resume/` should remain unchanged during JD-specific tailoring.
+
+### Resume-only work
+
+Use `$bmad-cv-editor` directly when you want to edit or rebuild the resume without a specific job posting:
+
+```text
+$bmad-cv-editor rebuild resume
+```
+
+For a general resume improvement request, the skill may edit canonical files under `resume/`. For a job-specific request, it should create or use a folder under `JDs/` and edit only the copied LaTeX files there.
+
+Useful requests:
+
+- `$bmad-cv-editor rebuild resume`
+- `$bmad-cv-editor improve my resume for machine learning engineer roles`
+- `$bmad-cv-editor tailor my resume for JDs/<Job Name> - <Company>/`
+
+### Cover-letter-only work
+
+Use `$bmad-cover-letter-writer` when a JD folder already exists and you only need the letter:
+
+```text
+$bmad-cover-letter-writer create a cover letter for JDs/<Job Name> - <Company>/
+```
+
+The writer reads `jd-information.md`, checks claims against the resume, creates or updates the cover-letter `.tex` file in the same JD folder, and builds the PDF when feasible.
+
+### Verification checklist
+
+After any application workflow, confirm:
+
+- The JD folder exists under `JDs/`.
+- `jd-information.md` has clean role details, priority requirements, tailoring notes, and unsupported requirements.
+- The JD-specific resume PDF builds successfully.
+- The cover-letter PDF builds successfully.
+- Canonical resume files were not modified for JD-specific tailoring.
+- Unsupported requirements are reported instead of claimed.
 
 
 ## Credit
