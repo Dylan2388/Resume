@@ -1,0 +1,76 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+\fontdir[fonts/]
+
+\colorlet{awesome}{awesome-red}
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\name{Dylan}{Pham}
+\position{Business Data Analyst{\enskip\cdotp\enskip}Machine Learning Engineer}
+
+\mobile{(+358) 504 763 601}
+\email{hoangdungpham0703@gmail.com}
+\linkedin{dylanpn}
+
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%-------------------------------------------------------------------------------
+\recipient
+  {Tapio Jokinen and Veikkaus Recruitment Team}
+  {Veikkaus\\Helsinki, Finland}
+\letterdate{\today}
+\lettertitle{Application for Leading Business Data Analyst / Business Data Analyst}
+\letteropening{Dear Tapio Jokinen and Veikkaus Recruitment Team,}
+\letterclosing{Best regards,}
+% \letterenclosure[Attached]{Curriculum Vitae}
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[R]
+
+\makecvfooter
+  {\today}
+  {Dylan Pham~~~·~~~Cover Letter}
+  {}
+
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+%	LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+I am applying for the Leading Business Data Analyst / Business Data Analyst role in Veikkaus's Operational Analytics \& Insight unit. My background combines production machine learning, data pipeline engineering, and business-facing analytics work. That combination fits the role's need for someone who can translate stakeholder needs into analytical requirements, build robust data-driven solutions, and carry them from exploration through production use.
+
+At Ericsson, I work as a Machine Learning Engineer / Machine Learning Ops specialist on AI solutions for large-scale network operations. I developed an ML application that detects bad weather conditions from network transmission signals, supporting proactive maintenance and reliability decisions. I also optimized a time-series data pipeline by implementing concurrent processing, achieving 100x faster data insertion. Beyond model development, I maintain the production ML lifecycle with Docker, Kubernetes, Helm, Jenkins, DVC, Kubeflow, and MLflow, which gives me practical experience with validation, deployment, monitoring, and continuous improvement.
+
+The Veikkaus role also requires strong collaboration with business stakeholders and the ability to turn fragmented needs into usable insight. In my CIO / Business Partner role at Frontier Leader Institute Vietnam, I restructured the organization's data workflow by integrating video recordings, Google Forms, participant feedback, and operational inputs into a human-AI collaboration process. This improved knowledge capture and internal information flow, while the cloud and AI infrastructure I designed enabled up to 5x employee productivity. Across Ericsson and FLI, I have worked with product teams, data scientists, network architects, and business partners to connect technical solutions with operational goals.
+
+I bring a relevant academic foundation through a double-degree Master's in Data Science and Entrepreneurship from Aalto University and the University of Twente, plus practical experience with Python, SQL, statistical modeling, feature engineering, model evaluation, simulation, and optimization. While I do not claim direct gambling or iGaming experience, I can contribute transferable strengths in predictive analytics, data pipelines, stakeholder translation, and production-grade analytical systems. Veikkaus's focus on responsible, data-driven gaming is especially interesting because it requires analytics that is commercially useful, technically reliable, and grounded in customer and operational responsibility.
+
+Thank you for considering my application. I would welcome the opportunity to discuss how my analytics, ML, and cross-functional delivery experience could support Veikkaus as the Finnish gaming market enters its next phase.
+
+\end{cvletter}
+
+
+%-------------------------------------------------------------------------------
+\makeletterclosing
+
+\end{document}

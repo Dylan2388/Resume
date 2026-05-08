@@ -25,6 +25,12 @@
 _bmad/*
 .claude/*
 .agents/*
+!.agents/skills/
+.agents/skills/*
+!.agents/skills/bmad-cv-editor/
+!.agents/skills/bmad-cv-editor/SKILL.md
+!.agents/skills/bmad-cover-letter-writer/
+!.agents/skills/bmad-cover-letter-writer/SKILL.md
 
 # Vscode
 .vscode/*

@@ -95,6 +95,18 @@ docker run --rm --user $(id -u):$(id -g) -i -w "/doc" -v "$PWD":/doc texlive/tex
 
 In either case, this should result in the creation of ``{your-cv}.pdf``
 
+## AI-Assisted Application Workflow
+
+Use this workflow when tailoring the resume and cover letter for a specific job description.
+
+1. Copy the full job description into the chat.
+2. Ask `$bmad-cv-editor` to create a new CV version for that JD.
+3. The CV editor should create `JDs/<Job Name> - <Company>/`, save the JD as `jd-information.md`, copy the resume source into that workspace, tailor only the copied files, and place the generated CV PDF in the same JD folder.
+4. Ask `$bmad-cover-letter-writer` to create the cover letter for the same JD.
+5. The cover letter writer should use `JDs/<Job Name> - <Company>/jd-information.md` as the targeting source and place both the `.tex` cover letter and generated PDF in that same JD folder.
+
+The canonical resume under `resume/` should remain unchanged during JD-specific tailoring.
+
 
 ## Credit
 
